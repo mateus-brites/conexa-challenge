@@ -8,6 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.conexa.challengeconexa.modules.schedules.entities.ScheduleEntity;
 import com.conexa.challengeconexa.modules.user.dtos.UserRoles;
 
 import jakarta.persistence.Column;
@@ -15,6 +16,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -41,6 +43,10 @@ public class UserEntity implements UserDetails {
 
     @Column(nullable = false, length = 30)
     private String telefone;
+
+    @OneToMany(mappedBy = "user")
+    private List<ScheduleEntity> schedules;
+
 
     @Column
     UserRoles role;
@@ -142,5 +148,13 @@ public class UserEntity implements UserDetails {
 
     public void setRole(UserRoles role) {
         this.role = role;
+    }
+
+    public List<ScheduleEntity> getSchedules() {
+        return schedules;
+    }
+
+    public void setSchedules(List<ScheduleEntity> schedules) {
+        this.schedules = schedules;
     }
 }
