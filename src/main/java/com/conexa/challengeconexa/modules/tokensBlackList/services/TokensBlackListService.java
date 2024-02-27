@@ -18,8 +18,8 @@ public class TokensBlackListService {
         return tokenBlackListRepository.save(token);
     }
 
-    public Boolean tokenIsInBlackList(TokenBlackListEntity token) {
-        if(tokenBlackListRepository.findByToken(token.getToken()) != null) {
+    public Boolean tokenIsInBlackList(String token) {
+        if(tokenBlackListRepository.findByToken(token) != null) {
             return true;
         } else {
             return false;

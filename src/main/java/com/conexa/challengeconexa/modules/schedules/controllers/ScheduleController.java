@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.conexa.challengeconexa.modules.schedules.dtos.CreateScheduleDTO;
 import com.conexa.challengeconexa.modules.schedules.dtos.ScheduleDTO;
-import com.conexa.challengeconexa.modules.schedules.dtos.TesteDTO;
 import com.conexa.challengeconexa.modules.schedules.entities.ScheduleEntity;
 import com.conexa.challengeconexa.modules.schedules.service.ScheduleService;
 import com.conexa.challengeconexa.modules.user.entities.UserEntity;
@@ -29,16 +28,6 @@ public class ScheduleController {
     public ScheduleController(ScheduleService scheduleService) {
         this.scheduleService = scheduleService;
     }
-
-    @GetMapping("/teste2")
-    public ResponseEntity teste(@AuthenticationPrincipal UserEntity user) {
-        return ResponseEntity.status(200).body(user);
-    }
-
-    // @GetMapping("/teste3")
-    // public ResponseEntity teste3(@AuthenticationPrincipal user) {
-    //     return ResponseEntity.status(200).body(user);
-    // }
 
     @PostMapping("/attendance")
     public ResponseEntity<ScheduleEntity> create(

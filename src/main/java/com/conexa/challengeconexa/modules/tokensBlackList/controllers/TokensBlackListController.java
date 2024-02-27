@@ -1,20 +1,16 @@
 package com.conexa.challengeconexa.modules.tokensBlackList.controllers;
 
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.conexa.challengeconexa.modules.security.SecutiryFilter;
 import com.conexa.challengeconexa.modules.tokensBlackList.dto.CreateTokenBlackListDTO;
 import com.conexa.challengeconexa.modules.tokensBlackList.entities.TokenBlackListEntity;
 import com.conexa.challengeconexa.modules.tokensBlackList.services.TokensBlackListService;
 
-import ch.qos.logback.core.joran.util.beans.BeanUtil;
 import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
